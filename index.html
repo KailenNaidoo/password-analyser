@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Analyser & Security Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Password Strength Analyser</h1>
+            <p class="subtitle">Smart analysis with personalised security advice</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="password-field">
+                    <input type="password" id="passwordInput" placeholder="Enter your password..." autocomplete="off">
+                    <button id="toggleVisibility" class="toggle-btn" aria-label="Toggle password visibility">
+                        <span class="eye-icon">👁️</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="strength-section" id="strengthSection">
+                <div class="strength-meter">
+                    <div class="meter-bar" id="meterBar"></div>
+                </div>
+                <div class="strength-label" id="strengthLabel">Enter a password to analyse</div>
+                <div class="crack-time" id="crackTime"></div>
+            </div>
+
+            <div class="stats-section" id="statsSection">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="lengthStat">0</span>
+                        <span class="stat-label">Length</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="entropyStat">0</span>
+                        <span class="stat-label">Entropy (bits)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="charsetStat">0</span>
+                        <span class="stat-label">Charset Size</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="scoreStat">0</span>
+                        <span class="stat-label">Score /100</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-section" id="analysisSection">
+                <h2>Analysis</h2>
+                <div class="checks-list" id="checksList"></div>
+            </div>
+
+            <div class="advice-section" id="adviceSection">
+                <h2>Security Advice</h2>
+                <ul class="advice-list" id="adviceList"></ul>
+            </div>
+
+            <div class="generator-section">
+                <h2>Need a Strong Password?</h2>
+                <div class="generator-controls">
+                    <label for="genLength">Length:
+                        <input type="range" id="genLength" min="8" max="64" value="16">
+                        <span id="genLengthValue">16</span>
+                    </label>
+                    <div class="gen-options">
+                        <label><input type="checkbox" id="genUpper" checked> Uppercase</label>
+                        <label><input type="checkbox" id="genLower" checked> Lowercase</label>
+                        <label><input type="checkbox" id="genNumbers" checked> Numbers</label>
+                        <label><input type="checkbox" id="genSymbols" checked> Symbols</label>
+                    </div>
+                    <button id="generateBtn" class="generate-btn">Generate Password</button>
+                </div>
+                <div class="generated-password" id="generatedPassword"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Your password is analysed locally — nothing is sent over the network.</p>
+        </footer>
+    </div>
+
+    <script src="analyser.js"></script>
+</body>
+</html>
